@@ -1,6 +1,7 @@
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarHeader,
   SidebarInset,
   SidebarMenuButton,
@@ -17,6 +18,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export function SidebarContainer() {
   const sidebarItems = [
@@ -51,7 +53,7 @@ export function SidebarContainer() {
 
   return (
     <>
-      <Sidebar collapsible="icon" variant="floating">
+      <Sidebar collapsible="icon" variant="sidebar">
         <SidebarHeader
           className={cn("flex items-center flex-row", "justify-between")}
         >

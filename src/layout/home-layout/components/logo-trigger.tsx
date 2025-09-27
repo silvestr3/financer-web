@@ -25,7 +25,7 @@ export function LogoTrigger() {
       {!open && isHovering ? (
         <Tooltip>
           <TooltipTrigger>
-            <SidebarTrigger className="w-8 h-8" />
+            <SidebarTrigger className="w-7.5 h-7.5" />
           </TooltipTrigger>
           <TooltipContent side="right">
             <p>Abrir menu</p>
@@ -34,7 +34,7 @@ export function LogoTrigger() {
       ) : (
         <img
           src={logo}
-          className={cn("w-8 h-8", "transition-all")}
+          className={cn("w-7.5 h-7.5", "transition-all")}
           alt="Financer Logo"
         />
       )}
