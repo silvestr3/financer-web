@@ -1,7 +1,6 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarInset,
   SidebarMenuButton,
@@ -18,7 +17,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { Header } from "./header";
 
 export function SidebarContainer() {
   const sidebarItems = [
@@ -91,6 +90,7 @@ export function SidebarContainer() {
         </SidebarContent>
       </Sidebar>
       <SidebarInset>
+        <Header />
         <div className="flex flex-col flex-1 p-8">
           <Outlet />
         </div>
