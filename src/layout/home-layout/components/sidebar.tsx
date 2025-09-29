@@ -91,7 +91,7 @@ export function SidebarContainer() {
       </Sidebar>
       <SidebarInset>
         <Header />
-        <div className="flex flex-col flex-1 p-8">
+        <div className="flex flex-col flex-1 lg:px-8 lg:py-6 md:px-4 md:py-4 p-2">
           <Outlet />
         </div>
       </SidebarInset>
