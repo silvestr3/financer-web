@@ -1,6 +1,6 @@
-import { Card } from "@/components/ui/card";
-import { BalanceChart } from "./components/balance-chart";
-import { SummaryCards } from "./components/summary-cards";
+import { Card } from "@/components/ui/card"
+import { BalanceChart } from "./components/balance-chart"
+import { SummaryCards } from "./components/summary-cards"
 
 export function DashboardPage() {
   return (
@@ -13,5 +13,5 @@ export function DashboardPage() {
         <Card className="flex-1">a</Card>
       </div>
     </div>
-  );
+  )
 }

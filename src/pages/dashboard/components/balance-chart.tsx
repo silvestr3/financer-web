@@ -3,15 +3,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/components/ui/chart";
-import { Separator } from "@/components/ui/separator";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+} from "@/components/ui/chart"
+import { Separator } from "@/components/ui/separator"
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 const chartData = [
   { month: "Jan", revenue: 2000, expenses: 1578 },
@@ -26,7 +26,7 @@ const chartData = [
   { month: "Oct", revenue: 7000, expenses: 5490 },
   { month: "Nov", revenue: 7000, expenses: 5490 },
   { month: "Dec", revenue: 7000, expenses: 5490 },
-];
+]
 
 export function BalanceChart() {
   const chartConfig = {
@@ -38,7 +38,7 @@ export function BalanceChart() {
       label: "Saídas",
       color: "#FF4326",
     },
-  } satisfies ChartConfig;
+  } satisfies ChartConfig
 
   return (
     <Card>
@@ -116,5 +116,5 @@ export function BalanceChart() {
         </AreaChart>
       </ChartContainer>
     </Card>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export function SummaryCards() {
   return (
@@ -18,5 +18,5 @@ export function SummaryCards() {
         <CardContent className="text-2xl text-rose-600">5,000.00</CardContent>
       </Card>
     </div>
-  );
+  )
 }

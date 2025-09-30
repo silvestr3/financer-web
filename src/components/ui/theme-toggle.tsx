@@ -1,12 +1,12 @@
-import { useTheme } from "@/context/theme-provider";
-import { Button } from "./button";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { useTheme } from "@/context/theme-provider"
+import { Button } from "./button"
+import { motion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 export function ThemeToggle() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme } = useTheme()
 
-  const isDark = theme === "dark";
+  const isDark = theme === "dark"
 
   return (
     <Button
@@ -59,5 +59,5 @@ export function ThemeToggle() {
         </g>
       </svg>
     </Button>
-  );
+  )
 }

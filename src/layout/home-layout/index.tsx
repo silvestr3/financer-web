@@ -1,5 +1,5 @@
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { SidebarContainer } from "./components/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar"
+import { SidebarContainer } from "./components/sidebar"
 
 export const HomeLayout: React.FC = () => {
   return (
@@ -8,5 +8,5 @@ export const HomeLayout: React.FC = () => {
         <SidebarContainer />
       </SidebarProvider>
     </div>
-  );
-};
+  )
+}

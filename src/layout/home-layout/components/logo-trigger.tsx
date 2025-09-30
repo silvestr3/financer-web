@@ -1,23 +1,23 @@
-import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
-import logo from "@/assets/logo.png";
-import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar"
+import logo from "@/assets/logo.png"
+import { cn } from "@/lib/utils"
+import { useState } from "react"
 import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/tooltip"
 
 export function LogoTrigger() {
-  const { open } = useSidebar();
-  const [isHovering, setIsHovering] = useState(false);
+  const { open } = useSidebar()
+  const [isHovering, setIsHovering] = useState(false)
 
   function handleMouseEnter() {
-    setIsHovering(true);
+    setIsHovering(true)
   }
 
   function handleMouseLeave() {
-    setIsHovering(false);
+    setIsHovering(false)
   }
 
   return (
@@ -39,5 +39,5 @@ export function LogoTrigger() {
         />
       )}
     </div>
-  );
+  )
 }
