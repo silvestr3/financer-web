@@ -1,6 +1,6 @@
-import { Card } from "@/components/ui/card"
 import { BalanceChart } from "./components/balance-chart"
 import { SummaryCards } from "./components/summary-cards"
+import { CategoriesChart } from "./components/categories-chart"
 
 export function DashboardPage() {
   return (
@@ -10,7 +10,7 @@ export function DashboardPage() {
       </div>
       <div className="flex-1 flex flex-col gap-4 h-full">
         <SummaryCards />
-        <Card className="flex-1">a</Card>
+        <CategoriesChart />
       </div>
     </div>
   )
