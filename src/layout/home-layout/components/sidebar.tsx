@@ -9,7 +9,12 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { Link, Outlet } from "react-router";
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import {
+  BanknoteArrowDown,
+  BanknoteArrowUp,
+  Home,
+  TrendingUp,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LogoTrigger } from "./logo-trigger";
 import {
@@ -23,28 +28,23 @@ export function SidebarContainer() {
   const sidebarItems = [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/",
       icon: Home,
     },
     {
-      title: "Inbox",
-      url: "#",
-      icon: Inbox,
+      title: "Entradas",
+      url: "/income",
+      icon: BanknoteArrowUp,
     },
     {
-      title: "Calendar",
-      url: "#",
-      icon: Calendar,
+      title: "Saídas",
+      url: "/expenses",
+      icon: BanknoteArrowDown,
     },
     {
-      title: "Search",
-      url: "#",
-      icon: Search,
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings,
+      title: "Investimentos",
+      url: "/investments",
+      icon: TrendingUp,
     },
   ];
 
