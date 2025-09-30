@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { HomeLayout } from "@/layout/home-layout";
 import { DashboardPage } from "@/pages/dashboard";
+import { NotFound } from "@/components/global/not-found";
 
 export const DefaultRouter = createBrowserRouter([
   {
@@ -14,6 +15,6 @@ export const DefaultRouter = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>404 Not Found</div>,
+    element: <NotFound />,
   },
 ]);
