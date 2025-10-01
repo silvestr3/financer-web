@@ -7,22 +7,22 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
   useSidebar,
-} from "@/components/ui/sidebar"
-import { Link, Outlet, useLocation } from "react-router"
+} from "@/components/ui/sidebar";
+import { Link, Outlet, useLocation } from "react-router";
 import {
   BanknoteArrowDown,
   BanknoteArrowUp,
   Home,
   TrendingUp,
-} from "lucide-react"
-import { cn } from "@/lib/utils"
-import { LogoTrigger } from "./logo-trigger"
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { LogoTrigger } from "./logo-trigger";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Header } from "./header"
+} from "@/components/ui/tooltip";
+import { Header } from "./header";
 
 export function SidebarContainer() {
   const sidebarItems = [
@@ -46,11 +46,11 @@ export function SidebarContainer() {
       url: "/investments",
       icon: TrendingUp,
     },
-  ]
+  ];
 
-  const { open } = useSidebar()
-  const location = useLocation()
-  const currentPath = location.pathname
+  const { open } = useSidebar();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   return (
     <>
@@ -64,7 +64,7 @@ export function SidebarContainer() {
         <SidebarContent
           className={cn(
             "flex mt-4 list-none",
-            open ? "items-start" : "items-center",
+            open ? "items-start" : "items-center"
           )}
         >
           {sidebarItems.map((item) => (
@@ -72,7 +72,7 @@ export function SidebarContainer() {
               <SidebarMenuItem
                 className={cn(
                   "w-full transition-all text-muted-foreground font-light",
-                  open ? "px-1" : "px-2",
+                  open ? "px-1" : "px-2"
                 )}
               >
                 <TooltipTrigger asChild>
@@ -80,7 +80,7 @@ export function SidebarContainer() {
                     <Link
                       to={item.url}
                       className={cn(
-                        currentPath === item.url && "bg-accent text-foreground",
+                        currentPath === item.url && "bg-accent text-foreground"
                       )}
                     >
                       <item.icon />
@@ -105,5 +105,5 @@ export function SidebarContainer() {
         </div>
       </SidebarInset>
     </>
-  )
+  );
 }
