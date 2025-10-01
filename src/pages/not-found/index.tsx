@@ -1,6 +1,6 @@
+import { Button } from "@/components/ui/button"
+import { LightRays } from "@/components/ui/light-rays"
 import { Link } from "react-router"
-import { LightRays } from "../ui/light-rays"
-import { Button } from "../ui/button"
 
 export function NotFound() {
   return (
