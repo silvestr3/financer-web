@@ -1,9 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
-export function SummaryCards() {
+export function SummaryCards({ className }: { className?: string }) {
   return (
-    <div className="flex items-center gap-4 min-w-44">
-      <Card className="flex-1 gap-4">
+    <div className={cn("grid grid-cols-2 gap-4", className)}>
+      <Card>
         <CardHeader>
           <CardTitle>Entradas</CardTitle>
         </CardHeader>
@@ -11,7 +12,7 @@ export function SummaryCards() {
           10,000.00
         </CardContent>
       </Card>
-      <Card className="flex-1 gap-4">
+      <Card>
         <CardHeader>
           <CardTitle>Saídas</CardTitle>
         </CardHeader>

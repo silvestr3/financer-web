@@ -6,10 +6,11 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { cn } from "@/lib/utils"
 import { Plus } from "lucide-react"
 import { Pie, PieChart } from "recharts"
 
-export function CategoriesChart() {
+export function CategoriesChart({ className }: { className?: string }) {
   const chartData = [
     { browser: "moradia", visitors: 475, fill: "var(--color-moradia)" },
     { browser: "alimentacao", visitors: 200, fill: "var(--color-alimentacao)" },
@@ -42,7 +43,7 @@ export function CategoriesChart() {
   } satisfies ChartConfig
 
   return (
-    <Card className="flex-1 relative">
+    <Card className={cn(className)}>
       <CardHeader className="items-center pb-0 flex justify-between">
         <CardTitle>Categorias</CardTitle>
         <Button variant={"secondary"}>

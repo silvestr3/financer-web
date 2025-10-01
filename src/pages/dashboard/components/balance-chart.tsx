@@ -11,6 +11,7 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart"
 import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 const chartData = [
@@ -28,7 +29,7 @@ const chartData = [
   { month: "Dec", revenue: 7000, expenses: 5490 },
 ]
 
-export function BalanceChart() {
+export function BalanceChart({ className }: { className?: string }) {
   const chartConfig = {
     revenue: {
       label: "Entradas",
@@ -41,7 +42,7 @@ export function BalanceChart() {
   } satisfies ChartConfig
 
   return (
-    <Card>
+    <Card className={cn(className)}>
       <CardHeader>
         <CardTitle>Balanço</CardTitle>
         <CardDescription>Movimentações ao longo do tempo</CardDescription>
