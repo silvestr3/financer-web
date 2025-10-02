@@ -18,6 +18,8 @@ import {
   Repeat,
   Trash,
 } from "lucide-react";
+import { useState } from "react";
+import { IncomeDialog } from "./components/income-dialog";
 
 const recurringIncomeList: Income[] = [
   {
@@ -68,9 +70,11 @@ export function IncomePage() {
     {
       id: "actions",
       cell: () => {
+        const [isOpen, setIsOpen] = useState(false);
+
         return (
           <div className="flex justify-end">
-            <DropdownMenu>
+            <DropdownMenu modal open={isOpen} onOpenChange={setIsOpen}>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="h-8 w-8 p-0">
                   <span className="sr-only">Open menu</span>
@@ -78,10 +82,12 @@ export function IncomePage() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem className="cursor-pointer">
-                  <Pencil size={8} />
-                  Editar
-                </DropdownMenuItem>
+                <IncomeDialog mode="edit">
+                  <DropdownMenuItem className="cursor-pointer">
+                    <Pencil size={8} />
+                    Editar
+                  </DropdownMenuItem>
+                </IncomeDialog>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   variant="destructive"
@@ -129,10 +135,12 @@ export function IncomePage() {
     <div className="flex-1">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl">Receitas</h2>
-        <Button variant="outline">
-          <Plus />
-          Nova receita
-        </Button>
+        <IncomeDialog mode={"add"}>
+          <Button variant="outline">
+            <Plus />
+            Nova receita
+          </Button>
+        </IncomeDialog>
       </div>
 
       <CustomTabs tabs={tabs} />
