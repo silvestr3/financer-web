@@ -1,10 +1,23 @@
 import { CustomTabs } from "@/components/global/custom-tabs";
 import { DataTable } from "@/components/global/data-table";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 import type { Income } from "@/types/income";
 import type { ColumnDef } from "@tanstack/react-table";
-import { CalendarCheck, Plus, Repeat } from "lucide-react";
+import {
+  CalendarCheck,
+  MoreHorizontal,
+  Pencil,
+  Plus,
+  Repeat,
+  Trash,
+} from "lucide-react";
 
 const recurringIncomeList: Income[] = [
   {
@@ -52,9 +65,40 @@ export function IncomePage() {
         }).format(date);
       },
     },
+    {
+      id: "actions",
+      cell: () => {
+        return (
+          <div className="flex justify-end">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <span className="sr-only">Open menu</span>
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem className="cursor-pointer">
+                  <Pencil size={8} />
+                  Editar
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  variant="destructive"
+                  className="cursor-pointer"
+                >
+                  <Trash size={8} />
+                  Deletar
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        );
+      },
+    },
   ];
 
-  const tabsContent = [
+  const tabs = [
     {
       value: "recurring",
       label: "Recorrentes",
@@ -91,7 +135,7 @@ export function IncomePage() {
         </Button>
       </div>
 
-      <CustomTabs tabs={tabsContent} />
+      <CustomTabs tabs={tabs} />
     </div>
   );
 }
