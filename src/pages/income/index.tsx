@@ -1,3 +1,4 @@
+import { CustomTabs } from "@/components/global/custom-tabs";
 import { DataTable } from "@/components/global/data-table";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -53,6 +54,33 @@ export function IncomePage() {
     },
   ];
 
+  const tabsContent = [
+    {
+      value: "recurring",
+      label: "Recorrentes",
+      icon: (
+        <Repeat
+          className="-ms-0.5 me-1.5 opacity-60"
+          size={16}
+          aria-hidden="true"
+        />
+      ),
+      content: <DataTable columns={columns} data={recurringIncomeList} />,
+    },
+    {
+      value: "one-time",
+      label: "Pontuais",
+      icon: (
+        <CalendarCheck
+          className="-ms-0.5 me-1.5 opacity-60"
+          size={16}
+          aria-hidden="true"
+        />
+      ),
+      content: <DataTable columns={columns} data={oneTimeIncomeList} />,
+    },
+  ];
+
   return (
     <div className="flex-1">
       <div className="flex items-center justify-between mb-4">
@@ -63,38 +91,7 @@ export function IncomePage() {
         </Button>
       </div>
 
-      <Tabs defaultValue="tab-1">
-        <TabsList className="text-foreground mb-3 h-auto gap-2 rounded-none border-b bg-transparent px-0 py-1">
-          <TabsTrigger
-            value="tab-1"
-            className="border-none cursor-pointer hover:bg-accent dark:data-[state=active]:border-none dark:data-[state=active]:bg-transparent bg-transparent hover:text-foreground data-[state=active]:after:bg-primary relative after:absolute after:inset-x-0 after:bottom-0 after:-mb-1 after:h-0.5"
-          >
-            <Repeat
-              className="-ms-0.5 me-1.5 opacity-60"
-              size={16}
-              aria-hidden="true"
-            />
-            Recorrentes
-          </TabsTrigger>
-          <TabsTrigger
-            value="tab-2"
-            className="border-none cursor-pointer hover:bg-accent dark:data-[state=active]:border-none dark:data-[state=active]:bg-transparent bg-transparent hover:text-foreground data-[state=active]:after:bg-primary relative after:absolute after:inset-x-0 after:bottom-0 after:-mb-1 after:h-0.5"
-          >
-            <CalendarCheck
-              className="-ms-0.5 me-1.5 opacity-60"
-              size={16}
-              aria-hidden="true"
-            />
-            Pontuais
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="tab-1">
-          <DataTable columns={columns} data={recurringIncomeList} />
-        </TabsContent>
-        <TabsContent value="tab-2">
-          <DataTable columns={columns} data={oneTimeIncomeList} />
-        </TabsContent>
-      </Tabs>
+      <CustomTabs tabs={tabsContent} />
     </div>
   );
 }
