@@ -1,7 +1,8 @@
-import { createBrowserRouter } from "react-router-dom"
-import { HomeLayout } from "@/layout/home-layout"
-import { DashboardPage } from "@/pages/dashboard"
-import { NotFound } from "@/pages/not-found"
+import { createBrowserRouter } from "react-router-dom";
+import { HomeLayout } from "@/layout/home-layout";
+import { DashboardPage } from "@/pages/dashboard";
+import { NotFound } from "@/pages/not-found";
+import { IncomePage } from "@/pages/income";
 
 export const DefaultRouter = createBrowserRouter([
   {
@@ -13,11 +14,7 @@ export const DefaultRouter = createBrowserRouter([
       },
       {
         path: "/income",
-        element: (
-          <div>
-            <h1>Income</h1>
-          </div>
-        ),
+        element: <IncomePage />,
       },
       {
         path: "/expenses",
@@ -41,4 +38,4 @@ export const DefaultRouter = createBrowserRouter([
     path: "*",
     element: <NotFound />,
   },
-])
+]);

@@ -1,15 +1,8 @@
 import { DataTable } from "@/components/global/data-table";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import type { Payment } from "@/types/payment";
 import { type ColumnDef } from "@tanstack/react-table";
-
-type Payment = {
-  id: string;
-  amount: number;
-  status: "pending" | "completed" | "overdue";
-  description: string;
-  category: string;
-};
 
 export const payments: Payment[] = [
   {
