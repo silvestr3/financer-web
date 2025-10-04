@@ -3,10 +3,13 @@ import { HomeLayout } from "@/layout/home-layout";
 import { DashboardPage } from "@/pages/(app)/dashboard";
 import { NotFound } from "@/pages/not-found";
 import { IncomePage } from "@/pages/(app)/income";
+import { AuthLayout } from "@/layout/auth-layout";
+import { SignInPage } from "@/pages/(auth)/sign-in";
 
 export const DefaultRouter = createBrowserRouter([
 	{
 		Component: HomeLayout,
+		middleware: [],
 		children: [
 			{
 				path: "/",
@@ -31,6 +34,16 @@ export const DefaultRouter = createBrowserRouter([
 						<h1>Investments</h1>
 					</div>
 				),
+			},
+		],
+	},
+	{
+		Component: AuthLayout,
+		path: "/auth",
+		children: [
+			{
+				path: "/auth/sign-in",
+				element: <SignInPage />,
 			},
 		],
 	},
