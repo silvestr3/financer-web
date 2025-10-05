@@ -50,6 +50,13 @@ export const DefaultRouter = createBrowserRouter([
 	{
 		Component: AuthLayout,
 		path: "/auth",
+		loader: async () => {
+			const { data: session } = await auth.getSession();
+			if (session) {
+				throw redirect("/");
+			}
+			return null;
+		},
 		children: [
 			{
 				path: "/auth/sign-in",
