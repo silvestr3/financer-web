@@ -5,6 +5,7 @@ import { NotFound } from "@/pages/not-found";
 import { IncomePage } from "@/pages/(app)/income";
 import { AuthLayout } from "@/layout/auth-layout";
 import { SignInPage } from "@/pages/(auth)/sign-in";
+import { SignUpPage } from "@/pages/(auth)/sign-up";
 
 export const DefaultRouter = createBrowserRouter([
 	{
@@ -44,6 +45,10 @@ export const DefaultRouter = createBrowserRouter([
 			{
 				path: "/auth/sign-in",
 				element: <SignInPage />,
+			},
+			{
+				path: "/auth/sign-up",
+				element: <SignUpPage />,
 			},
 		],
 	},
