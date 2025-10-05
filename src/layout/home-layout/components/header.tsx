@@ -9,11 +9,11 @@ import {
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { auth } from "@/lib/auth-client";
 import { LogOut, User } from "lucide-react";
-import { useNavigate } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 
 export function Header() {
 	const navigate = useNavigate();
-	const { data: session } = auth.useSession();
+	const { user } = useLoaderData();
 
 	function handleLogout() {
 		auth.signOut(
@@ -39,9 +39,9 @@ export function Header() {
 			<DropdownMenu>
 				<DropdownMenuTrigger>
 					<Avatar className="cursor-pointer">
-						<AvatarImage src={session?.user?.image ?? undefined} />
+						<AvatarImage src={user?.image ?? undefined} />
 						<AvatarFallback className="text-sm font-medium">
-							{getUserInitials(session?.user?.name)}
+							{getUserInitials(user?.name)}
 						</AvatarFallback>
 					</Avatar>
 				</DropdownMenuTrigger>
