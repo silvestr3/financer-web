@@ -13,6 +13,7 @@ import { useNavigate } from "react-router";
 
 export function Header() {
 	const navigate = useNavigate();
+	const { data: session } = auth.useSession();
 
 	function handleLogout() {
 		auth.signOut(
@@ -25,14 +26,23 @@ export function Header() {
 		);
 	}
 
+	function getUserInitials(name: string | undefined) {
+		if (!name) return "U";
+		const names = name.split(" ");
+		const initials = names.map((n) => n[0]).join("");
+		return initials.slice(0, 2).toUpperCase();
+	}
+
 	return (
 		<nav className="bg-sidebar h-12 display flex items-center justify-end p-4 border-b gap-2">
 			<ThemeToggle />
 			<DropdownMenu>
 				<DropdownMenuTrigger>
 					<Avatar className="cursor-pointer">
-						<AvatarImage src="https://github.com/shadcn.png" />
-						<AvatarFallback>CN</AvatarFallback>
+						<AvatarImage src={session?.user?.image ?? undefined} />
+						<AvatarFallback className="text-sm font-medium">
+							{getUserInitials(session?.user?.name)}
+						</AvatarFallback>
 					</Avatar>
 				</DropdownMenuTrigger>
 
