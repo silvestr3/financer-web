@@ -57,6 +57,7 @@ export function SignUpPage() {
 					<div className="grid gap-3">
 						<Label htmlFor="name">Nome</Label>
 						<Input
+							placeholder="Insira seu nome completo"
 							className={cn(errors.name ? "border-destructive" : "")}
 							icon={User}
 							id="name"
@@ -68,6 +69,7 @@ export function SignUpPage() {
 					<div className="grid gap-3">
 						<Label htmlFor="email">Email</Label>
 						<Input
+							placeholder="john@example.com"
 							className={cn(errors.email ? "border-destructive" : "")}
 							icon={Mail}
 							id="email"
@@ -79,6 +81,7 @@ export function SignUpPage() {
 					<div className="grid gap-3">
 						<Label htmlFor="password">Senha</Label>
 						<Input
+							placeholder="Mínimo 8 caracteres"
 							className={cn(errors.password ? "border-destructive" : "")}
 							icon={Lock}
 							id="password"

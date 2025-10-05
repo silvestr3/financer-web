@@ -59,6 +59,7 @@ export function SignInPage() {
 						<Label htmlFor="email">Email</Label>
 
 						<Input
+							placeholder="john@example.com"
 							className={cn(errors.email ? "border-destructive" : "")}
 							icon={Mail}
 							id="email"
@@ -70,6 +71,7 @@ export function SignInPage() {
 					<div className="grid gap-3">
 						<Label htmlFor="password">Senha</Label>
 						<Input
+							placeholder="Digite sua senha"
 							className={cn(errors.password ? "border-destructive" : "")}
 							icon={Lock}
 							id="password"
