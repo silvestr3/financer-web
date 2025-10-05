@@ -1,9 +1,57 @@
-import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { auth } from "@/lib/auth-client";
+import { LogOut, User } from "lucide-react";
+import { useNavigate } from "react-router";
 
 export function Header() {
-  return (
-    <nav className="bg-sidebar h-12 display flex items-center justify-end p-2 border-b">
-      <ThemeToggle />
-    </nav>
-  )
+	const navigate = useNavigate();
+
+	function handleLogout() {
+		auth.signOut(
+			{},
+			{
+				onSuccess: () => {
+					navigate("/auth/sign-in");
+				},
+			},
+		);
+	}
+
+	return (
+		<nav className="bg-sidebar h-12 display flex items-center justify-end p-4 border-b gap-2">
+			<ThemeToggle />
+			<DropdownMenu>
+				<DropdownMenuTrigger>
+					<Avatar className="cursor-pointer">
+						<AvatarImage src="https://github.com/shadcn.png" />
+						<AvatarFallback>CN</AvatarFallback>
+					</Avatar>
+				</DropdownMenuTrigger>
+
+				<DropdownMenuContent align="end">
+					<DropdownMenuItem className="cursor-pointer flex items-center gap-2">
+						<User size={16} /> Perfil
+					</DropdownMenuItem>
+
+					<DropdownMenuSeparator />
+
+					<DropdownMenuItem
+						onClick={handleLogout}
+						itemType="danger"
+						className="cursor-pointer flex items-center gap-2 text-destructive hover:bg-destructive/10 hover:text-destructive focus:bg-destructive/10"
+					>
+						<LogOut className="text-destructive" size={16} /> Sair
+					</DropdownMenuItem>
+				</DropdownMenuContent>
+			</DropdownMenu>
+		</nav>
+	);
 }
