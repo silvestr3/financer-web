@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/a11y/noSvgWithoutTitle: <explanation> */
 export function FacebookLogo() {
 	return (
 		<svg
