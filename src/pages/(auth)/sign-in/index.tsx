@@ -9,7 +9,10 @@ import { z } from "zod";
 import { auth } from "@/lib/auth-client";
 import { toast } from "sonner";
 import { Lock, Mail } from "lucide-react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { Separator } from "@/components/ui/separator";
+import { GoogleLogo } from "./components/google-logo";
+import { FacebookLogo } from "./components/facebook-logo";
 
 const signInSchema = z.object({
 	email: z.email("Email inválido"),
@@ -77,9 +80,34 @@ export function SignInPage() {
 					</div>
 
 					<Button type="submit" className="mt-2">
-						Sign In
+						Entrar
 					</Button>
 				</form>
+
+				<div className="flex items-center gap-4 my-6">
+					<Separator className="flex-1" />
+					<span className="text-muted-foreground text-sm">Ou continue com</span>
+					<Separator className="flex-1" />
+				</div>
+
+				<div className=" gap-2 flex items-center">
+					<Button variant="outline" className={cn("flex-1 gap-2")}>
+						<GoogleLogo />
+						Google
+					</Button>
+
+					<Button variant="outline" className={cn("flex-1 gap-2")}>
+						<FacebookLogo />
+						Facebook
+					</Button>
+				</div>
+
+				<span className="text-sm text-muted-foreground text-center mt-10 block">
+					Ainda não possui uma conta?{" "}
+					<Link to="/auth/sign-up" className="underline hover:text-primary">
+						Crie uma
+					</Link>
+				</span>
 			</div>
 		</div>
 	);
