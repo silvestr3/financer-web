@@ -9,7 +9,7 @@ import { z } from "zod";
 import { auth } from "@/lib/auth-client";
 import { toast } from "sonner";
 import { Lock, Mail, User } from "lucide-react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const signUpSchema = z.object({
 	email: z.email("Email inválido"),
@@ -92,6 +92,13 @@ export function SignUpPage() {
 						Sign In
 					</Button>
 				</form>
+
+				<span className="text-sm text-muted-foreground text-center mt-10 block">
+					Já possui uma conta?{" "}
+					<Link to="/auth/sign-in" className="underline hover:text-primary">
+						Entrar
+					</Link>
+				</span>
 			</div>
 		</div>
 	);
